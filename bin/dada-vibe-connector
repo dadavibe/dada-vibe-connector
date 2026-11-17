@@ -1,0 +1,9 @@
+#!/bin/sh
+# Starts the local MCP server of the separately installed Dada Vibe Connector app.
+# The app is not part of this plugin: https://dadavibe.com/logic/
+APP_SERVER="/Applications/Dada Vibe Connector.app/Contents/Resources/payload/bin/start-mcp"
+if [ ! -x "$APP_SERVER" ]; then
+  echo "Dada Vibe Connector is not installed. Install the app from https://dadavibe.com/trial/ (7-day free trial) and open it once." >&2
+  exit 1
+fi
+exec "$APP_SERVER" "$@"

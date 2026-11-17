@@ -28,16 +28,16 @@
 
 Client notes: [Claude Desktop](docs/claude-desktop.md) · [ChatGPT for Mac](docs/chatgpt.md) · [VS Code + GitHub Copilot](docs/vscode-copilot.md)
 
-## Claude plugin (optional)
+## Claude plugin
 
-The app sets up Claude Desktop for you. If you use Claude Code, you can also install the plugin from this repository:
+This repository is a Claude plugin. It adds the Logic Pro MCP server of the installed app to Claude:
 
 ```
 /plugin marketplace add leospajer-dotcom/dada-vibe-connector
 /plugin install dada-vibe-connector@dada-vibe
 ```
 
-The plugin only registers the local MCP server of the installed app (`/Applications/Dada Vibe Connector.app`). It does nothing without the app.
+What the plugin runs: one small shell script, [`bin/dada-vibe-connector`](bin/dada-vibe-connector). It checks that the app is installed and starts the app's local MCP server (`/Applications/Dada Vibe Connector.app/Contents/Resources/payload/bin/start-mcp`) over stdio. The plugin itself contains no other code, sends nothing and fetches nothing. Without the app it only prints how to install it.
 
 ## What you can ask for
 
@@ -56,9 +56,25 @@ The connector runs only on your Mac. Logic Pro has no built-in MCP server, so th
 
 Send a parameter map and AI assistants can set your plug-in precisely (Hz, dB, ms, named modes): https://dadavibe.com/plugin-developers/
 
-## Privacy
+## Privacy Policy
 
-The connector has no accounts and runs locally. The only network request it makes by itself is the update check to `https://updates.dadavibe.com/logic/stable.json`; licence activation contacts our server once per Mac. Your AI assistant and its provider process the conversation under their own terms. Full notice: https://dadavibe.com/privacy/
+Full notice: https://dadavibe.com/privacy/ · Controller: Leoš Pajer (Dada Vibe), IČO 72446757, Prague, Czech Republic · Contact: info@dadavibe.com
+
+**Data collection and use.** The connector runs locally on your Mac and has no user accounts. To carry out your requests it reads the state of Logic Pro (project and track names, mixer and plug-in values, transport) and, when your assistant operates a graphical plug-in and you allow Screen Recording, an image of that plug-in window. It returns these results only to the AI app that asked. It does not read your chat history, memory or uploaded files and does not profile users.
+
+**Storage.** Local files stay on your Mac (`~/Library/Caches/logic-pro-studio`, `~/Library/Application Support/DadaVibe`): activity log, error records, saved recipes, learned plug-in data and backups of AI client settings. You can delete them at any time.
+
+**What leaves your Mac.**
+1. Update check: an HTTPS request to `https://updates.dadavibe.com/logic/stable.json` without cookies or an account identifier.
+2. Licence or trial activation, once per Mac: the licence key (or a trial request) is sent to `updates.dadavibe.com`, which checks it with Payhip.
+3. Problem report, only if you click Send in the app: you see the exact text first; it contains no project, track or plug-in names, paths, music, audio, screenshots or your instructions. Sent to `report.dadavibe.com`.
+4. Anonymous usage statistics, only if you agree in the app: at most one message a day without any identifier.
+
+**Third-party sharing.** Your AI app and its provider (for example Anthropic, OpenAI or GitHub/Microsoft) process the conversation and the connector's results under their own terms; we do not receive them. Our servers are hosted by ACTIVE 24 (Czech Republic). Purchases are handled by Payhip (payments by Stripe or PayPal). We do not sell data.
+
+**Retention.** Problem reports: 90 days, then deleted. Aggregate daily usage counts: at most 800 days. Backups at the hosting provider: up to 14 more days after deletion. Order records: as required for tax and accounting (Payhip keeps transaction records for VAT for 10 years). Support e-mails: normally deleted or anonymised within 12 months.
+
+**Contact.** info@dadavibe.com
 
 ## Support
 
