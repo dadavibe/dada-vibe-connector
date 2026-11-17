@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dada-vibe-connector": {
+      "command": "/Applications/Dada Vibe Connector.app/Contents/Resources/payload/bin/start-mcp",
+      "args": []
+    }
+  }
+}

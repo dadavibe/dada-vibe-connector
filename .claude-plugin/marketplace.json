@@ -1,0 +1,15 @@
+{
+  "name": "dada-vibe",
+  "description": "Logic Pro MCP server for Logic Pro 12 & 13 through the separately installed Dada Vibe Connector app",
+  "owner": {
+    "name": "Leoš Pajer (Dada Vibe)",
+    "email": "info@dadavibe.com"
+  },
+  "plugins": [
+    {
+      "name": "dada-vibe-connector",
+      "source": "./",
+      "description": "Work in Logic Pro 12 & 13 with Claude on Intel and Apple Silicon Macs through the separately installed Dada Vibe Connector app."
+    }
+  ]
+}
