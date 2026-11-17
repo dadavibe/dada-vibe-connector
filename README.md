@@ -66,7 +66,7 @@ Full notice: https://dadavibe.com/privacy/ · Controller: Leoš Pajer (Dada Vibe
 
 **What leaves your Mac.**
 1. Update check: an HTTPS request to `https://updates.dadavibe.com/logic/stable.json` without cookies or an account identifier.
-2. Licence or trial activation, once per Mac: the licence key (or a trial request) is sent to `updates.dadavibe.com`, which checks it with Payhip.
+2. Licence or trial activation, once per Mac, sent to `updates.dadavibe.com`: a purchased licence key is checked with Payhip; a trial needs no e-mail or card.
 3. Problem report, only if you click Send in the app: you see the exact text first; it contains no project, track or plug-in names, paths, music, audio, screenshots or your instructions. Sent to `report.dadavibe.com`.
 4. Anonymous usage statistics, only if you agree in the app: at most one message a day without any identifier.
 
