@@ -108,6 +108,17 @@ A single signed and notarized installer supports Intel and Apple Silicon Macs an
 
 Examples illustrate requests to your AI client. The client may need to clarify the target, choose a supported operation or ask for permission before changing the project.
 
+## Testing and verification
+
+Development combines **live Logic Pro workflow tests**, **automated regression tests** and **release-package checks**.
+
+- **Live workflow testing:** documented scenarios have been exercised in Logic Pro 12 on Intel and Logic Pro 13 on Apple Silicon. Tested areas include MIDI note and region editing, supported instrument and effect controls, automation, mixing and export. Evidence belongs to the particular workflow, Logic version and build; coverage differs between the two setups.
+- **Automated regression coverage:** checks cover areas such as MIDI handling, export-job results, client startup and discovery, licensing policy and audio analysis. For release 1.1.2, the reference-audio regression suite passed 26 tests.
+- **MCP protocol checks:** release validation uses the local MCP Inspector to check connection and tool schemas. Protocol checks and live musical-operation tests are separate checks.
+- **macOS distribution checks:** the 1.1.2 installer was checked for both Intel and Apple Silicon payloads, signed with Developer ID, notarized by Apple and verified with Gatekeeper.
+
+Supported operations check available results and can report incomplete verification. Use the seven-day trial to confirm the workflows you need with your own Mac, Logic version, client and plug-ins.
+
 ## Working well with the connector
 
 Give a clear target, musical range and intended result. A coherent request such as "write an eight-bar bass variation on the existing Bass track" gives your client more useful direction than an ambiguous "fix everything." Break a large production into manageable stages and review the musical result between them.
