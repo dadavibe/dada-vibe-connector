@@ -161,6 +161,27 @@ This repository is a Claude plugin. It adds the Logic Pro MCP server of the inst
 
 What the plugin runs: one small shell script, [`bin/dada-vibe-connector`](bin/dada-vibe-connector). It checks that the app is installed and starts the app's local MCP server (`/Applications/Dada Vibe Connector.app/Contents/Resources/payload/bin/start-mcp`) over stdio. The plugin itself contains no other code, sends nothing and fetches nothing. Without the app it only prints how to install it.
 
+## Local MCP installation configuration
+
+Install the signed and notarized macOS app first: [Download the 7-day free trial](https://dadavibe.com/trial/). The trial starts when activated in the app; no payment card is required. Use the same installer on Intel and Apple Silicon Macs.
+
+For a local MCP client that accepts a JSON server configuration, use the installed app's stdio entry point:
+
+```json
+{
+  "mcpServers": {
+    "dada-vibe-connector": {
+      "command": "/Applications/Dada Vibe Connector.app/Contents/Resources/payload/bin/start-mcp",
+      "args": []
+    }
+  }
+}
+```
+
+Keep the app installed at `/Applications/Dada Vibe Connector.app`. The command starts the app's local MCP connection; it is not a hosted HTTP endpoint. The app includes its runtime, so a separate Python, Node.js or Swift installation is not required. Open the app to activate the trial or enter a licence key, complete the requested macOS permissions, and follow the [Getting Started guide](https://dadavibe.com/getting-started/). Your client must support local stdio MCP servers; the command is not a browser URL.
+
+The repository's `lhm.plugin.json` declares the public MCP tool names and input shapes for directory discovery. It contains no implementation source or internal operation recipes.
+
 ## How it works
 
 The connector runs locally on your Mac. Your MCP client sends requests to the installed app, which operates supported Logic workflows through macOS integration and checks available results. The AI client handles the conversation and musical interpretation. More: https://dadavibe.com/mcp/
