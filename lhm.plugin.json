@@ -1,7 +1,7 @@
 {
   "identifier": "dada-vibe-connector",
   "name": "Dada Vibe Connector — Logic Pro 12 & 13",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Local MCP connector for **Logic Pro 12 and Logic Pro 13**, on **both Intel and Apple Silicon Macs**.\n\n**[Download the free 7-day trial](https://dadavibe.com/trial/)** — seven days from activation, no payment card required.\n\n**For Logic Pro 12 & 13. For Intel and Apple Silicon Macs.**\n\n**Less clicking. More music.**\n\nDada Vibe Connector connects a compatible AI client to your own Logic Pro 12 or Logic Pro 13 project on your Mac, with support for both Intel and Apple Silicon Macs. Give instructions by text, or by voice when your client supports it, and direct the session while the connector carries out supported Logic operations.\n\n### MIDI composition and editing\n\nCreate melodies, chord progressions, bass lines and drum patterns as MIDI. Read and edit existing notes, including pitch, timing, duration and velocity. Transpose parts, shape accents, build variations and import MIDI into an existing instrument track.\n\n### Arrangement and track organization\n\nCreate and revise supported regions: repeat, split, join, move and duplicate musical parts. Name and organize tracks, set track colours, and work with markers and song sections.\n\n### Instruments, effects and automation\n\nLoad available instruments and sounds, insert effects, and adjust supported native Logic and third-party Audio Units parameters in meaningful units such as Hz, dB and ms. Work with available presets, effect order and bypass. Create supported volume and plug-in automation, such as a filter sweep over a chosen range.\n\n### Mixing and sidechain\n\nAdjust supported faders, pan, mute and solo. Work with sends, buses, Aux and output processing. Set up supported compressor sidechain routing and adjust timing and dynamics controls.\n\n### Audio measurement and reference analysis\n\nCapture a requested section of Logic audio, measure track levels and use measurement-assisted mix balancing. Measure integrated LUFS, loudness range and true peak on a captured mix or audio file. Analyze reference audio for tempo, spectral balance and musical structure to inform your own production decisions.\n\n### Projects and export\n\nCreate, open, save and use Save As on the active project. Export audio, MIDI and supported individual-track audio. Plan an audio export, inspect the resulting files and resume an existing export job.\n\n### A ready-to-install Mac app\n\n- One signed and notarized installer for Intel and Apple Silicon Macs.\n- Required runtime included; no separate Python installation or Swift compilation.\n- Connection and macOS permission checks.\n- Logic Agent activity window and an in-app problem-reporting option.\n- Built-in app updater.\n- Seven-day free trial starting at activation in the app, with no payment card required.\n- Continue in the same installed app by entering a purchased licence key.\n\n### Testing and verification\n\nDevelopment combines live workflow tests in Logic Pro 12 on Intel and Logic Pro 13 on Apple Silicon with automated regression checks. Coverage includes areas such as MIDI editing, supported plug-in controls, automation, export results, client startup, licensing policy and audio analysis. Each live result is specific to the tested workflow, version and build.\n\nRelease 1.1.2 passed 26 reference-audio regression tests. Its release checks also included local MCP Inspector protocol and schema validation, verification of both architecture payloads, Developer ID signing, Apple notarization and Gatekeeper acceptance. These checks have different scopes; protocol and package checks are separate from live musical testing.\n\nUse the seven-day trial to confirm the workflows needed in your own setup.\n\n### Example requests\n\n- \"Create a four-bar chord progression on the Pad track.\"\n- \"Write an eight-bar bass variation and soften the last two notes.\"\n- \"Set the vocal EQ low cut to 120 Hz.\"\n- \"Create a rising filter sweep over bars 9–16.\"\n- \"Set up gentle bass ducking triggered by the kick.\"\n- \"Measure the mix and report its LUFS and true peak.\"\n- \"Export the whole current song as a 24-bit audio file.\"\n\n### Requirements and scope\n\nRequires macOS 15.6 or later, your own Logic Pro 12 or 13 with the English interface, a compatible local MCP client, and the required macOS permissions. Documented clients include Claude Desktop, ChatGPT for Mac in Work or Codex mode, and VS Code with GitHub Copilot. Logic Pro, AI services and third-party plug-ins are separate products.\n\nFunction availability depends on the Logic version, track type, plug-in and exposed controls. Support covers specific workflows rather than every Logic feature or every Audio Unit. Some operations require Logic in the foreground, and tasks can take tens of seconds to minutes. Review musical results and keep project backups. Demo videos are sped up.\n\nDada Vibe is the MCP connector; your AI client provides the conversation and musical interpretation. The connector runs locally, while the AI client's handling of the conversation and returned data follows that provider's terms. Privacy details: https://dadavibe.com/privacy/\n\nThe app is commercial software built on Kolton Jacobs' open-source Logic Pro MCP (MIT), with commercially licensed Dada Vibe extensions. This public repository contains documentation and integration files.\n\n### Links\n\n- Free trial: https://dadavibe.com/trial/\n- Product and current pricing: https://dadavibe.com/logic/\n- Setup guide: https://dadavibe.com/getting-started/\n- Demo videos: https://www.youtube.com/@DadaVibeAi\n- Public repository: https://github.com/dadavibe/dada-vibe-connector\n- Support: info@dadavibe.com\n\nIndependent project; not affiliated with Apple or AI providers. Logic Pro is a trademark of Apple Inc.\n",
   "author": "Dada Vibe",
   "tags": [
@@ -840,5 +840,134 @@
       }
     }
   ],
-  "category": "productivity"
+  "category": "productivity",
+  "prompts": [
+    {
+      "name": "mix_tracks",
+      "title": "Mix selected tracks",
+      "description": "Request a mix adjustment for specified tracks and a musical goal.",
+      "arguments": [
+        {
+          "name": "tracks",
+          "description": "Track names or an unambiguous group to mix.",
+          "required": true
+        },
+        {
+          "name": "goal",
+          "description": "Intended balance, style or specific mix problem.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "prepare_mastering",
+      "title": "Prepare mastering for the current mix",
+      "description": "Request suitable output processing for the current mix and its intended use.",
+      "arguments": [
+        {
+          "name": "goal",
+          "description": "Musical result and intended delivery, including loudness targets if known.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "add_effect",
+      "title": "Add an effect to a track",
+      "description": "Request a supported effect on a named track with an intended musical result.",
+      "arguments": [
+        {
+          "name": "track",
+          "description": "Exact target track name.",
+          "required": true
+        },
+        {
+          "name": "effect",
+          "description": "Requested effect type or available plug-in name.",
+          "required": true
+        },
+        {
+          "name": "goal",
+          "description": "Optional musical goal for the effect.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "automate_track",
+      "title": "Automate a track or plug-in parameter",
+      "description": "Request supported automation for a named track, parameter and musical range.",
+      "arguments": [
+        {
+          "name": "track",
+          "description": "Exact target track name.",
+          "required": true
+        },
+        {
+          "name": "parameter",
+          "description": "Track or plug-in parameter to automate.",
+          "required": true
+        },
+        {
+          "name": "range",
+          "description": "Musical range, such as bars 9 to 16.",
+          "required": true
+        },
+        {
+          "name": "movement",
+          "description": "Desired change, shape or start and end values with units.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "compose_midi_part",
+      "title": "Compose a MIDI part",
+      "description": "Describe a musical part to create in the current Logic Pro project.",
+      "arguments": [
+        {
+          "name": "brief",
+          "description": "Musical request: part, style, length and any desired key or rhythm.",
+          "required": true
+        },
+        {
+          "name": "track",
+          "description": "Optional target track name. Clarify the target if omitted.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "bass_compression",
+      "title": "Add compression to a bass track",
+      "description": "Request suitable compression on a named bass track, preserving existing processing.",
+      "arguments": [
+        {
+          "name": "track",
+          "description": "Exact name of the bass track to work on.",
+          "required": true
+        },
+        {
+          "name": "goal",
+          "description": "Optional intended result, such as steadier level or softer peaks.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "project_overview",
+      "title": "Summarize the current Logic Pro project",
+      "description": "Read the current project and summarize its musical structure without changes."
+    },
+    {
+      "name": "connection_check",
+      "title": "Check the connector connection and permissions",
+      "description": "Read connection and permission status and explain any missing requirements."
+    },
+    {
+      "name": "plan_next_steps",
+      "title": "Plan the next production steps",
+      "description": "Read the current project and propose up to three next steps for the user to choose."
+    }
+  ]
 }
