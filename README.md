@@ -119,6 +119,14 @@ Development combines **live Logic Pro workflow tests**, **automated regression t
 
 Supported operations check available results and can report incomplete verification. Use the seven-day trial to confirm the workflows you need with your own Mac, Logic version, client and plug-ins.
 
+## Optional MCP prompt templates (1.1.3 and later)
+
+Nine reusable request templates help you get started: **Mix selected tracks**, **Prepare mastering**, **Add an effect**, **Automate a track**, **Compose a MIDI part**, **Bass compression**, **Project overview**, **Connection check**, and **Plan next steps**.
+
+Your MCP client can discover them with `prompts/list` and retrieve a template with `prompts/get`. Fill in the requested fields, such as a track name, musical brief, effect or automation range. Retrieving a template only prepares a request; it does not start Logic, change the project or bypass the normal tool permissions and checks. The AI client then interprets your request and uses supported connector operations. Prompt menus depend on your client; free-form text and voice requests remain available as supported by that client.
+
+[Prompt names and fields](docs/prompt-templates.md)
+
 ## Working well with the connector
 
 Give a clear target, musical range and intended result. A coherent request such as "write an eight-bar bass variation on the existing Bass track" gives your client more useful direction than an ambiguous "fix everything." Break a large production into manageable stages and review the musical result between them.
