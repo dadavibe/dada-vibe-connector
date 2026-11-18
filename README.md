@@ -165,7 +165,7 @@ What the plugin runs: one small shell script, [`bin/dada-vibe-connector`](bin/da
 
 Install the signed and notarized macOS app first: [Download the 7-day free trial](https://dadavibe.com/trial/). The trial starts when activated in the app; no payment card is required. Use the same installer on Intel and Apple Silicon Macs.
 
-For a local MCP client that accepts a JSON server configuration, use the installed app's stdio entry point:
+For a local MCP client that accepts a JSON server configuration, use the installed app's stdio entry point. The exact executable command is `/Applications/Dada Vibe Connector.app/Contents/Resources/payload/bin/start-mcp`, with no arguments. `Dada Vibe Connector.app` by itself names an application bundle directory and is not an executable MCP command. Do not substitute the app name for the full executable path below:
 
 ```json
 {
