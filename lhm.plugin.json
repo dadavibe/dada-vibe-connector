@@ -1,8 +1,21 @@
 {
   "identifier": "dada-vibe-connector",
-  "name": "Dada Vibe Connector (Logic Pro MCP)",
+  "name": "Dada Vibe Connector — Logic Pro 12 & 13",
   "version": "1.1.2",
-  "description": "Local MCP server for Apple Logic Pro 12 & 13 on Mac: write and edit MIDI, load instruments, set plug-in parameters in Hz, dB and ms, draw automation and mix from Claude Desktop, ChatGPT for Mac or VS Code with GitHub Copilot. Requires the Dada Vibe Connector macOS app (7-day free trial, then a one-time licence).",
+  "description": "Local MCP connector for Logic Pro 12 and Logic Pro 13 on both Intel and Apple Silicon Macs. Write and edit MIDI, arrange, control supported plug-ins, automate, mix, analyze audio and export. Free 7-day trial from activation, no card: https://dadavibe.com/trial/",
   "author": "Dada Vibe",
-  "tags": ["logic-pro", "music-production", "daw", "midi", "mixing", "macos", "audio"]
+  "tags": [
+    "logic-pro",
+    "music-production",
+    "daw",
+    "midi",
+    "mixing",
+    "macos",
+    "audio",
+    "logic-pro-12",
+    "logic-pro-13",
+    "intel",
+    "apple-silicon"
+  ],
+  "homepage": "https://dadavibe.com/logic/"
 }
