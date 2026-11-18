@@ -11,6 +11,117 @@
 
 > This repository contains documentation, client setup notes and the Claude plugin manifest. It does **not** contain the app or its source code. The app is a commercial macOS product, built on the open-source [Logic Pro MCP](https://github.com/koltyj/logic-pro-mcp) by Kolton Jacobs (MIT) plus commercially licensed Dada Vibe extensions.
 
+## What you can do in Logic Pro
+
+Use text instructions, or voice when your MCP client supports it, to work on your own Logic Pro project. Your AI client interprets the musical request; Dada Vibe connects it to supported operations in Logic. You listen, decide and direct.
+
+### Write and edit MIDI parts
+
+- Create melodies, bass lines, chord progressions and drum patterns as MIDI in Logic.
+- Read notes from existing regions and change pitch, timing, duration and velocity.
+- Transpose parts, shape accents, create variations and remove selected notes.
+- Import MIDI parts into an existing instrument track and continue editing them.
+
+**Example:** "Create a four-bar Am–F–C–G chord progression on the Pad track, then make the last chord quieter."
+
+### Build and revise an arrangement
+
+- Create, select, repeat, split, join and move supported regions.
+- Duplicate a part or extend a musical section.
+- Name and organize tracks, set track colours, and work with markers and song sections.
+
+**Example:** "Repeat the bass part for the next eight bars and add a marker called Breakdown."
+
+### Load instruments and work with effects
+
+- Add software-instrument and audio tracks and load available instruments or sounds.
+- Insert effects and work with supported native Logic and third-party Audio Units controls.
+- Read and adjust available parameters using meaningful values such as Hz, dB and ms.
+- Work with available presets, effect order, bypass and output effects.
+
+**Example:** "Insert Channel EQ on the vocal and set its low cut to 120 Hz."
+
+Parameter access depends on the particular plug-in, its interface and the controls it exposes. Third-party plug-in support is specific to supported workflows; it is not a promise that every Audio Unit or every parameter can be controlled.
+
+### Write automation
+
+- Create and edit automation for supported track and plug-in controls.
+- Build volume changes and filter movements over a chosen musical range.
+- Read back available automation data and revise a supported envelope.
+
+**Example:** "Create a rising cutoff sweep on this synth over bars 9–16."
+
+Automation availability depends on the track type, parameter and Logic version.
+
+### Mix, route and set up sidechain processing
+
+- Adjust supported track and output levels, pan, mute and solo.
+- Work with supported sends, buses and Aux routing.
+- Insert effects on tracks, buses and the output.
+- Set up supported compressor sidechain routing and adjust its timing and dynamics controls.
+
+**Example:** "Set up gentle ducking on the bass, triggered by the kick."
+
+### Measure audio and refine a mix
+
+- Capture a requested section of Logic audio for analysis.
+- Measure track levels and use measurement-assisted mix balancing.
+- Measure integrated LUFS, loudness range and true peak on a captured mix or audio file.
+- Analyze reference audio for properties such as tempo, spectral balance and musical structure.
+- Compare audio measurements to help guide EQ, level and mastering decisions.
+
+**Example:** "Measure the loudest section of the mix and report its LUFS and true peak before changing anything."
+
+A measurement of a short section describes that section. Musical decisions and reference analysis still need your judgment.
+
+### Save projects and export your work
+
+- Create, open, save and use Save As on the active project.
+- Export audio and MIDI through supported Logic workflows.
+- Export supported individual-track audio.
+- Plan an audio export, inspect its result and resume an existing export job.
+- Check resulting files so an export request has a tangible output to review.
+
+**Example:** "Export the whole current song as a 24-bit audio file into the folder I choose."
+
+### Stay informed while you work
+
+- Read the current project, track, transport and available mixer state.
+- Check the connection and required macOS permissions.
+- Follow activity in the Logic Agent window and send a technical problem report from the app.
+- Receive app updates through the built-in updater.
+
+A single signed and notarized installer supports Intel and Apple Silicon Macs and includes the required runtime. You do not need to install Python or compile Swift yourself.
+
+## More example requests
+
+- "Read the open project: tempo, time signature and tracks. Change nothing."
+- "Write an eight-bar bass variation on the existing Bass track."
+- "Make the hi-hat velocities less uniform while keeping the rhythm."
+- "Transpose the selected MIDI part up an octave."
+- "Lower the pad level and move it slightly to the left."
+- "Add reverb through a supported send and keep the lead clear."
+- "Build a supported EQ, compressor and limiter chain on the output."
+- "Analyze this reference track and describe its tempo and spectral balance."
+- "Measure the mix first, then suggest the next three improvements."
+- "Save this project under a new name and export a preview."
+
+Examples illustrate requests to your AI client. The client may need to clarify the target, choose a supported operation or ask for permission before changing the project.
+
+## Working well with the connector
+
+Give a clear target, musical range and intended result. A coherent request such as "write an eight-bar bass variation on the existing Bass track" gives your client more useful direction than an ambiguous "fix everything." Break a large production into manageable stages and review the musical result between them.
+
+**Compatibility and scope.** The app supports Logic Pro 12 and 13 with the English interface on macOS 15.6 or later. Individual operations can differ between Logic versions, track types and plug-ins. Logic features such as Flex Time/Pitch editing are outside the documented supported workflows.
+
+**Execution and feedback.** Some operations need Logic in the foreground. Follow the app's instructions and let an active automation step finish before using the same Mac's keyboard or mouse. Supported operations include result checks; a command can report an incomplete result or refuse an unsupported target instead of completing the requested task.
+
+**Timing and musical results.** Allow tens of seconds to minutes depending on the task. AI reasoning, Logic dialogs and verification all contribute to the time needed. Demo videos are sped up. Review results and keep project backups; an AI client's interpretation of a musical request can need revision.
+
+**Try your own setup.** Use the seven-day free trial to check your Mac, Logic version, client and plug-ins. The seven days begin when you activate the trial in the app, with no payment card required. Enter a purchased licence key in the same app to continue after the trial.
+
+[Watch the demos](https://www.youtube.com/@DadaVibeAi) · [Download the trial](https://dadavibe.com/trial/) · [Read the setup guide](https://dadavibe.com/getting-started/)
+
 ## Requirements
 
 - A Mac with Apple Silicon or Intel, macOS 15.6 or later.
@@ -39,18 +150,9 @@ This repository is a Claude plugin. It adds the Logic Pro MCP server of the inst
 
 What the plugin runs: one small shell script, [`bin/dada-vibe-connector`](bin/dada-vibe-connector). It checks that the app is installed and starts the app's local MCP server (`/Applications/Dada Vibe Connector.app/Contents/Resources/payload/bin/start-mcp`) over stdio. The plugin itself contains no other code, sends nothing and fetches nothing. Without the app it only prints how to install it.
 
-## What you can ask for
-
-- "Read the open project: tempo, key and the list of tracks. Change nothing."
-- "Add a software-instrument track named Pad and write a four-bar Am – F – C – G chord loop on it."
-- "Set the low cut of the EQ on the vocal to 120 Hz and lower the reverb send by 3 dB."
-- "Draw a filter sweep on the synth over bars 9–16."
-
-Expect a collaborative sketching tool, not a finished production in one click: a simple step takes tens of seconds to a few minutes, and our demo videos are sped up. Save and back up your project before you try edits.
-
 ## How it works
 
-The connector runs only on your Mac. Logic Pro has no built-in MCP server, so the connector operates Logic through macOS channels (Accessibility, MIDI, AppleScript and key commands) and reads the result back after each step. More: https://dadavibe.com/mcp/
+The connector runs locally on your Mac. Your MCP client sends requests to the installed app, which operates supported Logic workflows through macOS integration and checks available results. The AI client handles the conversation and musical interpretation. More: https://dadavibe.com/mcp/
 
 ## For plug-in developers
 
