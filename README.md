@@ -33,7 +33,7 @@ Client notes: [Claude Desktop](docs/claude-desktop.md) · [ChatGPT for Mac](docs
 This repository is a Claude plugin. It adds the Logic Pro MCP server of the installed app to Claude:
 
 ```
-/plugin marketplace add leospajer-dotcom/dada-vibe-connector
+/plugin marketplace add dadavibe/dada-vibe-connector
 /plugin install dada-vibe-connector@dada-vibe
 ```
 
@@ -78,7 +78,7 @@ Full notice: https://dadavibe.com/privacy/ · Controller: Leoš Pajer (Dada Vibe
 
 ## Support
 
-- Bugs and questions: [open an issue](https://github.com/leospajer-dotcom/dada-vibe-connector/issues) or e-mail info@dadavibe.com
+- Bugs and questions: [open an issue](https://github.com/dadavibe/dada-vibe-connector/issues) or e-mail info@dadavibe.com
 - In the app: Logic Agent window → Report a problem (you see the exact report before sending)
 
 ## Licence
