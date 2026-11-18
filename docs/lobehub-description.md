@@ -6,9 +6,11 @@ A local MCP connector for Logic Pro 12 & 13 on Intel and Apple Silicon Macs. Wri
 
 ## Full description
 
+**For Logic Pro 12 & 13. For Intel and Apple Silicon Macs.**
+
 **Less clicking. More music.**
 
-Dada Vibe Connector connects a compatible AI client to your own Logic Pro project on your Mac. Give instructions by text, or by voice when your client supports it, and direct the session while the connector carries out supported Logic operations.
+Dada Vibe Connector connects a compatible AI client to your own Logic Pro 12 or Logic Pro 13 project on your Mac, with support for both Intel and Apple Silicon Macs. Give instructions by text, or by voice when your client supports it, and direct the session while the connector carries out supported Logic operations.
 
 ### MIDI composition and editing
 
