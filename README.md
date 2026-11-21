@@ -1,5 +1,7 @@
 # Dada Vibe Connector – Logic Pro MCP server for Logic Pro 12 & 13
 
+[![M8ven Score](https://m8ven.ai/badge/mcp/dadavibe-dada-vibe-connector-ael2q8?v=8dbb26b71305590096ccabe7229d7af5&variant=verified)](https://m8ven.ai/mcp/dadavibe-dada-vibe-connector-ael2q8?s=readme)
+
 **Dada Vibe Connector** is a local **MCP server** (Model Context Protocol) for **Apple Logic Pro 12 & 13** on Intel and Apple Silicon Macs. It lets AI assistants such as **Claude Desktop**, **ChatGPT for Mac (Work, Codex)** and **VS Code with GitHub Copilot** work inside your own Logic Pro project: write and edit MIDI, load instruments, set plug-in parameters in real units (Hz, dB, ms), draw automation, mix and build arrangements. You listen, decide and direct.
 
 - Website: https://dadavibe.com/logic/
