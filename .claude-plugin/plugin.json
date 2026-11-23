@@ -1,7 +1,7 @@
 {
   "name": "dada-vibe-connector",
-  "version": "1.1.2",
-  "description": "Logic Pro MCP server for Logic Pro 12 & 13 on Intel and Apple Silicon Macs: MIDI, instruments, plug-in parameters, automation and mixing through the separately installed Dada Vibe Connector app.",
+  "version": "1.2.1",
+  "description": "Local MCP server for Logic Pro 12 & 13 and REAPER 7.86+ on Intel and Apple Silicon Macs: MIDI, instruments, plug-in parameters in Hz/dB/ms, automation and mixing through the separately installed Dada Vibe Connector app.",
   "author": {
     "name": "Dada Vibe",
     "email": "info@dadavibe.com",
@@ -10,6 +10,7 @@
   "license": "MIT",
   "keywords": [
     "logic-pro",
+    "reaper",
     "mcp",
     "mcp-server",
     "model-context-protocol",

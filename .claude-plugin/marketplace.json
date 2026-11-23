@@ -1,6 +1,6 @@
 {
   "name": "dada-vibe",
-  "description": "Logic Pro MCP server for Logic Pro 12 & 13 through the separately installed Dada Vibe Connector app",
+  "description": "Local MCP server for Logic Pro 12 & 13 and REAPER 7.86+ through the separately installed Dada Vibe Connector app",
   "owner": {
     "name": "Dada Vibe",
     "email": "info@dadavibe.com"
@@ -9,7 +9,7 @@
     {
       "name": "dada-vibe-connector",
       "source": "./",
-      "description": "Work in Logic Pro 12 & 13 with Claude on Intel and Apple Silicon Macs through the separately installed Dada Vibe Connector app."
+      "description": "Work in Logic Pro 12 & 13 and REAPER 7.86+ with Claude on Intel and Apple Silicon Macs through the separately installed Dada Vibe Connector app."
     }
   ]
 }

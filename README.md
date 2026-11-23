@@ -1,8 +1,8 @@
-# Dada Vibe Connector – Logic Pro MCP server for Logic Pro 12 & 13
+# Dada Vibe Connector – MCP server for Logic Pro 12 & 13 and REAPER
 
 [![M8ven Score](https://m8ven.ai/badge/mcp/dadavibe-dada-vibe-connector-ael2q8?v=8dbb26b71305590096ccabe7229d7af5&variant=verified)](https://m8ven.ai/mcp/dadavibe-dada-vibe-connector-ael2q8?s=readme)
 
-**Dada Vibe Connector** is a local **MCP server** (Model Context Protocol) for **Apple Logic Pro 12 & 13** on Intel and Apple Silicon Macs. It lets AI assistants such as **Claude Desktop**, **ChatGPT for Mac (Work, Codex)** and **VS Code with GitHub Copilot** work inside your own Logic Pro project: write and edit MIDI, load instruments, set plug-in parameters in real units (Hz, dB, ms), draw automation, mix and build arrangements. You listen, decide and direct.
+**Dada Vibe Connector** is a local **MCP server** (Model Context Protocol) for **Apple Logic Pro 12 & 13** and **REAPER 7.86+** on Intel and Apple Silicon Macs. It lets AI assistants — **Claude Desktop**, **ChatGPT for Mac (Work, Codex)**, **Google Antigravity** and **VS Code (Codex, Claude Code)** — work inside your own DAW project: write and edit MIDI, load instruments, set plug-in parameters in real units (Hz, dB, ms), draw automation, mix and build arrangements. You listen, decide and direct.
 
 - Website: https://dadavibe.com/logic/
 - What is MCP? Logic Pro MCP server explained: https://dadavibe.com/mcp/
@@ -13,9 +13,9 @@
 
 > This repository contains documentation, client setup notes and the Claude plugin manifest. It does **not** contain the app or its source code. The app is a commercial macOS product, built on the open-source [Logic Pro MCP](https://github.com/koltyj/logic-pro-mcp) by Kolton Jacobs (MIT) plus commercially licensed Dada Vibe extensions.
 
-## What you can do in Logic Pro
+## What you can do in Logic Pro and REAPER
 
-Use text instructions, or voice when your MCP client supports it, to work on your own Logic Pro project. Your AI client interprets the musical request; Dada Vibe connects it to supported operations in Logic. You listen, decide and direct.
+Use text instructions, or voice when your MCP client supports it, to work on your own Logic Pro or REAPER project. Your AI client interprets the musical request; Dada Vibe connects it to supported operations in your DAW. You listen, decide and direct.
 
 ### Write and edit MIDI parts
 
@@ -112,14 +112,14 @@ Examples illustrate requests to your AI client. The client may need to clarify t
 
 ## Testing and verification
 
-Development combines **live Logic Pro workflow tests**, **automated regression tests** and **release-package checks**.
+Development combines **live DAW workflow tests**, **automated regression tests** and **release-package checks**.
 
-- **Live workflow testing:** documented scenarios have been exercised in Logic Pro 12 on Intel and Logic Pro 13 on Apple Silicon. Tested areas include MIDI note and region editing, supported instrument and effect controls, automation, mixing and export. Evidence belongs to the particular workflow, Logic version and build; coverage differs between the two setups.
-- **Automated regression coverage:** checks cover areas such as MIDI handling, export-job results, client startup and discovery, licensing policy and audio analysis. For release 1.1.2, the reference-audio regression suite passed 26 tests.
+- **Live workflow testing:** documented scenarios have been exercised in Logic Pro 12 on Intel, Logic Pro 13 on Apple Silicon, and REAPER 7.86+. Tested areas include MIDI note and region editing, supported instrument and effect controls, automation, mixing and export. Evidence belongs to the particular workflow, DAW version and build; coverage differs between setups.
+- **Automated regression coverage:** checks cover areas such as MIDI handling, craft modules, REAPER studio workflows, export-job results, client startup and discovery, licensing policy and audio analysis.
 - **MCP protocol checks:** release validation uses the local MCP Inspector to check connection and tool schemas. Protocol checks and live musical-operation tests are separate checks.
-- **macOS distribution checks:** the 1.1.2 installer was checked for both Intel and Apple Silicon payloads, signed with Developer ID, notarized by Apple and verified with Gatekeeper.
+- **macOS distribution checks:** the 1.2.1 installer is checked for both Intel and Apple Silicon payloads, signed with Developer ID, notarized by Apple and verified with Gatekeeper.
 
-Supported operations check available results and can report incomplete verification. Use the seven-day trial to confirm the workflows you need with your own Mac, Logic version, client and plug-ins.
+Supported operations check available results and can report incomplete verification. Use the seven-day trial to confirm the workflows you need with your own Mac, Logic Pro or REAPER version, client and plug-ins.
 
 ## Optional MCP prompt templates (1.1.3 and later)
 
@@ -133,32 +133,32 @@ Your MCP client can discover them with `prompts/list` and retrieve a template wi
 
 Give a clear target, musical range and intended result. A coherent request such as "write an eight-bar bass variation on the existing Bass track" gives your client more useful direction than an ambiguous "fix everything." Break a large production into manageable stages and review the musical result between them.
 
-**Compatibility and scope.** The app supports Logic Pro 12 and 13 with the English interface on macOS 15.6 or later. Individual operations can differ between Logic versions, track types and plug-ins. Logic features such as Flex Time/Pitch editing are outside the documented supported workflows.
+**Compatibility and scope.** The app supports Logic Pro 12 and 13 with the English interface and REAPER 7.86 or later on macOS 15.6 or later. Individual operations can differ between DAW versions, track types and plug-ins. Features such as Logic Flex Time/Pitch editing are outside the documented supported workflows.
 
-**Execution and feedback.** Some operations need Logic in the foreground. Follow the app's instructions and let an active automation step finish before using the same Mac's keyboard or mouse. Supported operations include result checks; a command can report an incomplete result or refuse an unsupported target instead of completing the requested task.
+**Execution and feedback.** In Logic Pro, some operations need Logic in the foreground; follow the app's instructions and let an active automation step finish before using the same Mac's keyboard or mouse (REAPER uses a direct bridge API). Supported operations include result checks; a command can report an incomplete result or refuse an unsupported target instead of completing the requested task.
 
-**Timing and musical results.** Allow tens of seconds to minutes depending on the task. AI reasoning, Logic dialogs and verification all contribute to the time needed. Demo videos are sped up. Review results and keep project backups; an AI client's interpretation of a musical request can need revision.
+**Timing and musical results.** Allow tens of seconds to minutes depending on the task (REAPER sessions run noticeably faster via direct API). AI reasoning, DAW dialogs and verification all contribute to the time needed. Demo videos are sped up. Review results and keep project backups; an AI client's interpretation of a musical request can need revision.
 
-**Try your own setup.** Use the seven-day free trial to check your Mac, Logic version, client and plug-ins. The seven days begin when you activate the trial in the app, with no payment card required. Enter a purchased licence key in the same app to continue after the trial.
+**Try your own setup.** Use the seven-day free trial to check your Mac, Logic Pro or REAPER version, client and plug-ins. The seven days begin when you activate the trial in the app, with no payment card required. Enter a purchased licence key in the same app to continue after the trial.
 
 [Watch the demos](https://www.youtube.com/@DadaVibeAi) · [Download the trial](https://dadavibe.com/trial/) · [Read the setup guide](https://dadavibe.com/getting-started/)
 
 ## Requirements
 
 - A Mac with Apple Silicon or Intel, macOS 15.6 or later.
-- Your own **Logic Pro 12 or 13** with the English interface.
-- An AI app that runs local MCP tools on the same Mac: Claude Desktop, ChatGPT for Mac in Work or Codex mode, or VS Code with GitHub Copilot.
+- Your own **Logic Pro 12 or 13** with the English interface, or **REAPER 7.86 or later**.
+- An AI app that runs local MCP tools on the same Mac: **Claude Desktop**, **ChatGPT for Mac** in Work or Codex mode, **Google Antigravity**, or **VS Code** with the Codex or Claude Code extension.
 - The **Dada Vibe Connector** app (signed and notarized macOS installer). One-time €29 + VAT, one user on two Macs, no subscription, free 1.x updates.
 
 ## Quick start
 
 1. Install the app from https://dadavibe.com/trial/ (7-day trial) or buy a licence at https://dadavibe.com/logic/.
 2. Open **Dada Vibe Connector**, choose your assistant in the Connection window and follow the setup.
-3. Grant the macOS permissions the app asks for: Accessibility, input event posting, Automation for Logic Pro and System Events, and Screen Recording.
+3. Grant the macOS permissions the app asks for: Accessibility, input event posting, Automation (Logic Pro, REAPER, System Events), and Screen Recording.
 4. Run a read-only check in your assistant:
-   > Use Dada Vibe Connector to read the current Logic Pro status and report any missing permissions. Do not create, close, edit or save a project, and do not start playback.
+   > Using Dada Vibe Connector, read the current state of my DAW (Logic Pro or REAPER) and report any missing permissions. Do not create, close, edit or save any project, and do not start playback.
 
-Client notes: [Claude Desktop](docs/claude-desktop.md) · [ChatGPT for Mac](docs/chatgpt.md) · [VS Code + GitHub Copilot](docs/vscode-copilot.md)
+Client notes: [Claude Desktop](docs/claude-desktop.md) · [ChatGPT for Mac](docs/chatgpt.md) · [Google Antigravity](docs/google-antigravity.md) · [VS Code (Codex, Claude Code)](docs/vscode-copilot.md)
 
 ## Claude plugin
 
@@ -204,7 +204,7 @@ Send a parameter map and AI assistants can set your plug-in precisely (Hz, dB, m
 
 Full notice: https://dadavibe.com/privacy/ · Controller: Leoš Pajer (Dada Vibe), IČO 72446757, Prague, Czech Republic · Contact: info@dadavibe.com
 
-**Data collection and use.** The connector runs locally on your Mac and has no user accounts. To carry out your requests it reads the state of Logic Pro (project and track names, mixer and plug-in values, transport) and, when your assistant operates a graphical plug-in and you allow Screen Recording, an image of that plug-in window. It returns these results only to the AI app that asked. It does not read your chat history, memory or uploaded files and does not profile users.
+**Data collection and use.** The connector runs locally on your Mac and has no user accounts. To carry out your requests it reads the state of Logic Pro or REAPER (project and track names, mixer and plug-in values, transport) and, when your assistant operates a graphical plug-in and you allow Screen Recording, an image of that plug-in window. It returns these results only to the AI app that asked. It does not read your chat history, memory or uploaded files and does not profile users.
 
 **Storage.** Local files stay on your Mac (`~/Library/Caches/logic-pro-studio`, `~/Library/Application Support/DadaVibe`): activity log, error records, saved recipes, learned plug-in data and backups of AI client settings. You can delete them at any time.
 
@@ -213,8 +213,9 @@ Full notice: https://dadavibe.com/privacy/ · Controller: Leoš Pajer (Dada Vibe
 2. Licence or trial activation, once per Mac, sent to `updates.dadavibe.com`: a purchased licence key is checked with Payhip; a trial needs no e-mail or card.
 3. Problem report, only if you click Send in the app: you see the exact text first; it contains no project, track or plug-in names, paths, music, audio, screenshots or your instructions. Sent to `report.dadavibe.com`.
 4. Anonymous usage statistics, only if you agree in the app: at most one message a day without any identifier.
+5. Reference track online preview, only if you ask your AI to analyse a song by name rather than a local file: an HTTPS search/preview fetch without account, licence or project data, measured locally on your Mac.
 
-**Third-party sharing.** Your AI app and its provider (for example Anthropic, OpenAI or GitHub/Microsoft) process the conversation and the connector's results under their own terms; we do not receive them. Our servers are hosted by ACTIVE 24 (Czech Republic). Purchases are handled by Payhip (payments by Stripe or PayPal). We do not sell data.
+**Third-party sharing.** Your AI app and its provider (for example Anthropic, OpenAI or Google) process the conversation and the connector's results under their own terms; we do not receive them. Our servers are hosted by ACTIVE 24 (Czech Republic). Purchases are handled by Payhip (payments by Stripe or PayPal). We do not sell data.
 
 **Retention.** Problem reports: 90 days, then deleted. Aggregate daily usage counts: at most 800 days. Backups at the hosting provider: up to 14 more days after deletion. Order records: as required for tax and accounting (Payhip keeps transaction records for VAT for 10 years). Support e-mails: normally deleted or anonymised within 12 months.
 
@@ -223,10 +224,10 @@ Full notice: https://dadavibe.com/privacy/ · Controller: Leoš Pajer (Dada Vibe
 ## Support
 
 - Bugs and questions: [open an issue](https://github.com/dadavibe/dada-vibe-connector/issues) or e-mail info@dadavibe.com
-- In the app: Logic Agent window → Report a problem (you see the exact report before sending)
+- In the app: Dada Vibe Agent window → Report a problem (you see the exact report before sending)
 
 ## Licence
 
 Files in this repository (documentation and plugin manifest) are MIT licensed, see [LICENSE](LICENSE). The Dada Vibe Connector app is proprietary software: https://dadavibe.com/licence/
 
-Dada Vibe is independent and not affiliated with Apple, Anthropic, OpenAI or Microsoft. Logic Pro is a trademark of Apple Inc.
+Dada Vibe is independent and not affiliated with Apple, Cockos Incorporated, Anthropic, OpenAI, Google or Microsoft. Logic Pro is a trademark of Apple Inc. REAPER is a trademark of Cockos Incorporated.
