@@ -1,16 +1,16 @@
-# Dada Vibe Connector for Logic Pro 12 & 13
+# Dada Vibe Connector for Logic Pro 12 & 13 and REAPER
 
 ## Short description
 
-A local MCP connector for Logic Pro 12 & 13 on Intel and Apple Silicon Macs. Write MIDI, arrange regions, control supported plug-ins, automate, mix, analyze audio and export. Seven-day free trial, no card.
+A local MCP connector for Logic Pro 12 & 13 and REAPER 7.86+ on Intel and Apple Silicon Macs. Write MIDI, arrange regions, control supported plug-ins in Hz/dB/ms, automate, mix, analyze audio and export. Seven-day free trial, no card.
 
 ## Full description
 
-**For Logic Pro 12 & 13. For Intel and Apple Silicon Macs.**
+**For Logic Pro 12 & 13 and REAPER 7.86+. For Intel and Apple Silicon Macs.**
 
-**Less clicking. More music.**
+**Vibe the MIDI. Vibe the plug-ins. Vibe the mix.**
 
-Dada Vibe Connector connects a compatible AI client to your own Logic Pro 12 or Logic Pro 13 project on your Mac, with support for both Intel and Apple Silicon Macs. Give instructions by text, or by voice when your client supports it, and direct the session while the connector carries out supported Logic operations.
+Dada Vibe Connector connects a compatible AI client to your own Logic Pro 12, Logic Pro 13 or REAPER 7.86+ project on your Mac, with support for both Intel and Apple Silicon Macs. Give instructions by text, or by voice when your client supports it, and direct the session while the connector carries out supported DAW operations.
 
 ### MIDI composition and editing
 
@@ -48,9 +48,9 @@ Create, open, save and use Save As on the active project. Export audio, MIDI and
 
 ### Testing and verification
 
-Development combines live workflow tests in Logic Pro 12 on Intel and Logic Pro 13 on Apple Silicon with automated regression checks. Coverage includes areas such as MIDI editing, supported plug-in controls, automation, export results, client startup, licensing policy and audio analysis. Each live result is specific to the tested workflow, version and build.
+Development combines live workflow tests in Logic Pro 12 on Intel, Logic Pro 13 on Apple Silicon and REAPER 7.86+ with automated regression checks. Coverage includes areas such as MIDI editing, craft modules, supported plug-in controls, automation, export results, client startup, licensing policy and audio analysis. Each live result is specific to the tested workflow, version and build.
 
-Release 1.1.2 passed 26 reference-audio regression tests. Its release checks also included local MCP Inspector protocol and schema validation, verification of both architecture payloads, Developer ID signing, Apple notarization and Gatekeeper acceptance. These checks have different scopes; protocol and package checks are separate from live musical testing.
+Release 1.2.1 checks include local MCP Inspector protocol and schema validation, verification of both architecture payloads, Developer ID signing, Apple notarization and Gatekeeper acceptance. These checks have different scopes; protocol and package checks are separate from live musical testing.
 
 Use the seven-day trial to confirm the workflows needed in your own setup.
 
@@ -66,9 +66,9 @@ Use the seven-day trial to confirm the workflows needed in your own setup.
 
 ### Requirements and scope
 
-Requires macOS 15.6 or later, your own Logic Pro 12 or 13 with the English interface, a compatible local MCP client, and the required macOS permissions. Documented clients include Claude Desktop, ChatGPT for Mac in Work or Codex mode, and VS Code with GitHub Copilot. Logic Pro, AI services and third-party plug-ins are separate products.
+Requires macOS 15.6 or later, your own Logic Pro 12 or 13 (English interface) or REAPER 7.86 or later, a compatible local MCP client, and the required macOS permissions. Documented clients include Claude Desktop, ChatGPT for Mac in Work or Codex mode, Google Antigravity, and VS Code (Codex or Claude Code extension). Logic Pro, REAPER, AI services and third-party plug-ins are separate products.
 
-Function availability depends on the Logic version, track type, plug-in and exposed controls. Support covers specific workflows rather than every Logic feature or every Audio Unit. Some operations require Logic in the foreground, and tasks can take tens of seconds to minutes. Review musical results and keep project backups. Demo videos are sped up.
+Function availability depends on the DAW version, track type, plug-in and exposed controls. Support covers specific workflows rather than every DAW feature or every plug-in. In Logic Pro, some operations require Logic in the foreground, and tasks can take tens of seconds to minutes (REAPER uses a fast direct bridge API). Review musical results and keep project backups. Demo videos are sped up.
 
 Dada Vibe is the MCP connector; your AI client provides the conversation and musical interpretation. The connector runs locally, while the AI client's handling of the conversation and returned data follows that provider's terms. Privacy details: https://dadavibe.com/privacy/
 
@@ -83,4 +83,4 @@ The app is commercial software built on Kolton Jacobs' open-source Logic Pro MCP
 - Public repository: https://github.com/dadavibe/dada-vibe-connector
 - Support: info@dadavibe.com
 
-Independent project; not affiliated with Apple or AI providers. Logic Pro is a trademark of Apple Inc.
+Independent project; not affiliated with Apple, Cockos Incorporated or AI providers. Logic Pro is a trademark of Apple Inc. REAPER is a trademark of Cockos Incorporated.
